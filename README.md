@@ -1,0 +1,3 @@
+- clone this repository
+- sudo npm link
+- now you can use commands with cf-cli
