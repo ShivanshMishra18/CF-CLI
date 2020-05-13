@@ -8,5 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shivansh Mishra",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0",
+    "configstore": "^5.0.1",
+    "inquirer": "^7.1.0"
+  }
 }

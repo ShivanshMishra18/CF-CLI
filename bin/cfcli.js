@@ -1,3 +1,8 @@
 #!/usr/bin/env node
+const program = require('commander');
+const pkg = require('../package.json');
 
-console.log("CF-cli");
+program
+    .version(pkg.version)
+    .command('credentials', 'Manage CF login credentials')
+    .parse(process.argv);
