@@ -15,7 +15,8 @@ const cheerio = require('cheerio');
 //     // console.log(csrf_token);
 // });
 
-request.get({url: 'https://codeforces.com/'}, (e,res,body) => {
-    const $ = cheerio.load(body);;    
+request.get({url: 'https://codeforces.com/enter'}, (e,res,body) => {
+    const $ = cheerio.load(body);;
+    console.log(body);
     console.log($('.lang-chooser a').eq(2).text());
 });
