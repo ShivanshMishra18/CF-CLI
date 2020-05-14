@@ -10,9 +10,9 @@ request.get({url: 'https://codeforces.com/enter'}, (err,res,body) => {
     //     <input type="hidden" name="bfaa" value="">
     // </form>
 
-    // const $ = cheerio.load(body);
-    // const csrf_token = $('input').attr('value');
-    // console.log(csrf_token);
+    const $ = cheerio.load(body);
+    const csrf_token = $('input').attr('value');
+    console.log(csrf_token);
 });
 
 // request.get({url: 'https://codeforces.com/enter'}, (e,res,body) => {

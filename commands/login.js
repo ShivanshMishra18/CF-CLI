@@ -13,10 +13,17 @@ const login = {
 
     checkLoginStatus() {
         return new Promise( (resolve, reject) => {
-            request.get({url: enterURL}, (e,res,body) => {
+            const requestObject = {
+                url: enterURL,
+                headers: headerObject(),
+                jar: request.jar(new toughcookie(cookiePath)),
+                timeout
+            }
+            request.get(requestObject, (e,res,body) => {
                 if (e) return reject(e);
                 const $ = cheerio.load(body);
                 const who = $('.lang-chooser a').eq(2).text();
+                console.log($('input').attr('value'));
                 resolve(who);
             });
         })
@@ -25,10 +32,17 @@ const login = {
     
     obtainCSRF() {
         return new Promise( (resolve, reject) => {
-            request.get({url: enterURL}, (e,res,body) => {
+            const requestObject = {
+                url: enterURL,
+                headers: headerObject(),
+                jar: request.jar(new toughcookie(cookiePath)),
+                timeout
+            }
+            request.get(requestObject, (e,res,body) => {
                 if (e) return reject(e);
                 const $ = cheerio.load(body);
                 const CSRF_key = $('input').attr('value');
+                console.log(CSRF_key);
                 if (!CSRF_key || CSRF_key.length<20)
                     return reject(new Error('Unable to get CSRF Key'));
                 resolve(CSRF_key);
@@ -46,6 +60,7 @@ const login = {
             try {
                 handle = credentialsManager.getHandle();
                 password = credentialsManager.getPassword();
+                // console.log(handle, password);
             } catch (e) {
                 return reject(new Error('Setup credentials to log in'));
             }
@@ -65,6 +80,7 @@ const login = {
                 csrf_token: CSRF_key,
                 action: 'enter'
             };
+            console.log(CSRF_key, handle, password, headers);
 
             const requestObject = {
                 url: enterURL,
