@@ -23,7 +23,6 @@ const login = {
                 if (e) return reject(e);
                 const $ = cheerio.load(body);
                 const who = $('.lang-chooser a').eq(2).text();
-                console.log($('input').attr('value'));
                 resolve(who);
             });
         })
@@ -42,7 +41,6 @@ const login = {
                 if (e) return reject(e);
                 const $ = cheerio.load(body);
                 const CSRF_key = $('input').attr('value');
-                console.log(CSRF_key);
                 if (!CSRF_key || CSRF_key.length<20)
                     return reject(new Error('Unable to get CSRF Key'));
                 resolve(CSRF_key);
@@ -60,7 +58,6 @@ const login = {
             try {
                 handle = credentialsManager.getHandle();
                 password = credentialsManager.getPassword();
-                // console.log(handle, password);
             } catch (e) {
                 return reject(new Error('Setup credentials to log in'));
             }
@@ -80,7 +77,6 @@ const login = {
                 csrf_token: CSRF_key,
                 action: 'enter'
             };
-            console.log(CSRF_key, handle, password, headers);
 
             const requestObject = {
                 url: enterURL,
@@ -94,7 +90,7 @@ const login = {
             request.post(requestObject, (e,res,body) => {
                 if (e) return reject(e);
                 if (body) return reject('Credentials failed to login');
-                resolve();
+                resolve(handle);
             });
         })
     }

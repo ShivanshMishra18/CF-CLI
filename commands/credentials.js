@@ -18,13 +18,13 @@ const credentials = {
             }
         ]);
         credentialsManager.setCredentials(input.handle, input.password);
-        console.log(chalk.green('Handle and Password Set!'));
+        console.log(chalk.green('[+] Handle and Password set successfuly!'));
     },
 
     show() {
         try {
             const credentialsManager = new CredentialsManager();
-            console.log('Submitting as: ', chalk.yellow.bold(credentialsManager.getHandle()));
+            console.log('[+] Submitting as: ', chalk.yellow.bold(credentialsManager.getHandle()));
         } catch(e) {
             console.log(chalk.red(e));
         }
@@ -34,7 +34,7 @@ const credentials = {
         try {
             const credentialsManager = new CredentialsManager();
             credentialsManager.unsetCredentials();
-            console.log(chalk.green('Handle and Password removed successfuly!'));
+            console.log(chalk.green('[+] Handle and Password removed successfuly!'));
         } catch(e) {
             console.log(chalk.red(e));
         }
