@@ -8,4 +8,5 @@ program
     .command('login', 'Attempt Login')
     .command('logout', 'Logout from CF')
     .command('compiler', 'Manage compiler details')
+    .command('submit', 'Attempt a submission')
     .parse(process.argv);

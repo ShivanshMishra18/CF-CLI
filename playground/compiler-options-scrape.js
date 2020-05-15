@@ -1,4 +1,3 @@
-const inquirer = require('inquirer');
 const request = require('request');
 const cheerio = require('cheerio');
 const toughcookie = require('tough-cookie-filestore');
@@ -61,14 +60,3 @@ const obj  = {
     'Node.js 9.4.0': '55'
 }
 
-// {
-//     "csrf_token":"43f0202cebffd99560fc4bc330ccdd2b",
-//     "ftaa":"cosy9ojrskfqfcqq66",
-//     "bfaa":"c0ee77ae8e56544b369112d7be5ac5be",
-//     "action":"submitSolutionFormSubmitted",
-//     "submittedProblemIndex":"F",
-//     "source":"",
-//     "programTypeId":"50",
-//     "sourceFile":"",
-//     "_tta":"821"
-// }
