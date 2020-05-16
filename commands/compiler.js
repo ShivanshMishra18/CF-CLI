@@ -90,6 +90,14 @@ const credentials = {
         } catch(e) {
             console.log(chalk.red(e));
         }
+    },
+
+    get() {
+        const credentialsManager = new CredentialsManager();
+        if (!credentialsManager.getCompiler()) {
+            throw new Error ('Compiler not set');
+        }
+        return credentialsManager.getCompiler();
     }
     
 };
