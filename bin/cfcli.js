@@ -9,4 +9,5 @@ program
     .command('logout', 'Logout from CF')
     .command('compiler', 'Manage compiler details')
     .command('submit', 'Attempt a submission')
+    .command('status', 'View your submission stats')
     .parse(process.argv);
