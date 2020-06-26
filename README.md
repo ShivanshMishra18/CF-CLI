@@ -38,5 +38,9 @@ Commands:
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Coming Soon
+- See rating graphs directly from terminal
+- Add or remove friends
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
