@@ -10,4 +10,5 @@ program
     .command('compiler', 'Manage compiler details')
     .command('submit', 'Attempt a submission')
     .command('status', 'View your submission stats')
+    .command('rgraph', 'View rating graph(s)')
     .parse(process.argv);
