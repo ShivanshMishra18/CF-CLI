@@ -94,14 +94,14 @@ const rgraph = {
         let y2 = [];
         data1.forEach(element => {
             const x0 = new Date(element.time * 1000);
-            x1.push(x0.toDateString());
+            x1.push(x0.toDateString().split(' ')[3]);
             y1.push(element.newRating);
         });
         series1.x = x1;
         series1.y = y1;
         data2.forEach(element => {
             const x0 = new Date(element.time * 1000);
-            x2.push(x0);
+            x2.push(x0.toDateString().split(' ')[3]);
             y2.push(element.newRating);
         });
         series2.x = x2;

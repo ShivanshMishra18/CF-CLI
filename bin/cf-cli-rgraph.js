@@ -14,7 +14,11 @@ program
     .command('compare')
     .description('Compare two rating graphs')
     .action(async function() {
-        console.log('Section in Progress');        
+        const handle1 = 'Fefer_Ivan';
+        const handle2 = 'Triple-H';
+        const data1 = await rgraph.bringGraphData(handle1);   
+        const data2 = await rgraph.bringGraphData(handle2);   
+        rgraph.showGraphVersus(handle1, data1, handle2, data2);
     });
 
 program.parse(process.argv);
