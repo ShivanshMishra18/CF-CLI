@@ -2,8 +2,37 @@ const request = require('request');
 const chalk = require('chalk');
 const blessed = require('blessed');
 const contrib = require('blessed-contrib');
+const inquirer = require('inquirer');
 
 const rgraph = {
+
+    async readHandle(multi) {
+        console.log(chalk.gray('[*] Invalid handles will throw error!'));
+        const type = multi ? [
+            {
+                type: 'input',
+                name: 'handle1',
+                message: 'Handle 1'
+            },
+            {
+                type: 'input',
+                name: 'handle2',
+                message: 'Handle 2'   
+            }
+        ] : [
+            {
+                type: 'input',
+                name: 'handle',
+                message: 'Handle'
+            }
+        ];
+        const input = await inquirer.prompt(type);
+        return {
+            handle: input.handle,
+            handle1: input.handle1,
+            handle2: input.handle2
+        };
+    },
 
     bringGraphData(handle) {
         return new Promise ((resolve,reject) => {
